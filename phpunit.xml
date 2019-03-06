@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit backupGlobals="false"
          backupStaticAttributes="false"
-         bootstrap="vendor/autoload.php"
+         bootstrap="./bootstrap.php"
          colors="true"
          convertErrorsToExceptions="true"
          convertNoticesToExceptions="true"
@@ -9,22 +9,23 @@
          processIsolation="false"
          stopOnFailure="false">
     <testsuites>
+        <testsuite name="Unit">
+            <directory suffix="Test.php">./tests/Unit</directory>
+        </testsuite>
+
         <testsuite name="Feature">
             <directory suffix="Test.php">./tests/Feature</directory>
         </testsuite>
     </testsuites>
     <filter>
         <whitelist processUncoveredFilesFromWhitelist="true">
-            <directory suffix=".php">./classes</directory>
+            <directory suffix=".php">./app</directory>
         </whitelist>
-<!--   <listeners>
-        <listener class="NunoMaduro\Collision\Adapters\Phpunit\Listener" />
-    </listeners>-->
     </filter>
     <php>
         <env name="APP_ENV" value="testing"/>
         <env name="BCRYPT_ROUNDS" value="4"/>
-	<ini name="display_errors" value="On" />
+z	<ini name="display_errors" value="On" />
         <ini name="display_startup_errors" value="On" />
     </php>
 </phpunit>
