@@ -43,6 +43,6 @@ final class ExampleTest extends TestCase
         
         $testObj2 = new TestMeToo;
         $testObj2->method();
-
+        $testObj2->methodSqlQuery();
     }
 }

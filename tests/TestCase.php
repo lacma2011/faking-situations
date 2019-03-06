@@ -10,6 +10,7 @@ class TestCase extends BaseTestCase
 {
     protected $fakeClass;
 
+
     protected function setUp() {
         // provided by bootstrap
         global $Obj;

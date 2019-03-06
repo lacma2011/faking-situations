@@ -20,4 +20,20 @@ class TestMeToo {
         global $Obj;
         $Obj->notOkay(['a', 'b', 'c']);
     }
+    
+    public function methodSqlQuery() {
+        global $Obj;
+        $sql = <<<EOT
+SELECT
+ name,
+ milliseconds,
+  bytes,
+ albumid
+FROM
+ tracks
+    WHERE
+ albumid = 1;
+EOT;
+        $Obj->dbMethod($sql);
+    }
 }
