@@ -1,0 +1,8 @@
+{
+    "require": {
+        "phpunit/phpunit": "^8.0",
+        "nunomaduro/collision": "^2.1",
+        "symfony/var-dumper": "^4.2",
+        "fzaninotto/faker": "^1.8"
+    }
+}
