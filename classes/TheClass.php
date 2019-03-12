@@ -7,6 +7,7 @@ use PDO;
 class TheClass {
 
     private $realClass;
+    private $mocks = [];
     private $db;
 
     public function __construct( $realClass ) {
@@ -27,9 +28,27 @@ class TheClass {
     public function __call($name, $arguments) {
         echo "\n called method $name" . PHP_EOL;
         var_dump($arguments);
+        echo PHP_EOL;
+        if (key_exists($name, $this->mocks)) {
+            
+        }
     }
     
-    public function addMock() {
+    public function __get($name) {
+        echo "\n getting property $name" . PHP_EOL;
+        return $name;
+    }
+
+    public function __set($name, $arguments) {
+        echo "\n setting property $name" . PHP_EOL;
+        var_dump($arguments);
+        echo PHP_EOL;
+    }
+
+    public function addMock( $mockStructure ) {
+
+        // append $mockStructure to $this->mocks own structure
+
         
     }
     

@@ -34,6 +34,14 @@ FROM
     WHERE
  albumid = 1;
 EOT;
-        $Obj->dbMethod($sql);
+        $Obj->dbMethod($sql)->getAll();
+        
+        $Obj->data->loadDb($sql)->first();
+    }
+    
+    public function properties() {
+        global $Obj;
+        $Obj->myProperty = 'hello';
+        echo $Obj->myProperty;
     }
 }

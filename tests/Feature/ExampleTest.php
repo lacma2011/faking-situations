@@ -14,29 +14,11 @@ final class ExampleTest extends TestCase
     public function setUp() {
         parent::setUp();
         
+        $faker = $this->fakeClass;
     }
 
-    /**
-     * A basic test example.
-     *
-     * @return void
-     */
-    public function testBasicTest()
-    {
-        $x = TRUE;
-        $this->assertEquals(TRUE, $x);
-    }
     
-    public function testEqualString(): void
-    {
-        $x = 'user@example.com';
-        $this->assertEquals(
-            'user@example.com',
-            $x
-        );
-    }
-    
-    public function testCrazyObj(): void
+    public function testSensor(): void
     {
         $testObj = new TestMe;
         $testObj->method();
@@ -44,5 +26,11 @@ final class ExampleTest extends TestCase
         $testObj2 = new TestMeToo;
         $testObj2->method();
         $testObj2->methodSqlQuery();
+        $testObj2->properties();
+        
+        foreach ($this->fakeClass->getSensors() as $s) {
+            var_dump($s->getSensors());
+            echo "=================";
+        }
     }
 }
